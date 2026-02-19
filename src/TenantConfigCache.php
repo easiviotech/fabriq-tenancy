@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SwooleFabric\Tenancy;
+namespace Fabriq\Tenancy;
 
 /**
  * Per-worker in-memory cache for resolved tenant data.

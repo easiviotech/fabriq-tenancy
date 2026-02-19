@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SwooleFabric\Tenancy;
+namespace Fabriq\Tenancy;
 
 /**
  * Value object representing a resolved tenant.

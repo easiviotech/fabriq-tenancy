@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SwooleFabric\Tenancy;
+namespace Fabriq\Tenancy;
 
 use RuntimeException;
 use Swoole\Http\Request as SwooleRequest;
-use SwooleFabric\Kernel\Context;
+use Fabriq\Kernel\Context;
 
 /**
  * TenantResolver — resolves the current tenant from an HTTP request.

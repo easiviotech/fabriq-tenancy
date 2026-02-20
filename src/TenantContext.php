@@ -21,6 +21,7 @@ final class TenantContext
      * @param string $status      active | suspended | deleted
      * @param string|null $domain Custom domain (nullable)
      * @param array<string, mixed> $config  Tenant-specific config overrides
+     * @param string|null $dbKey  Database routing key (null = shared pool)
      */
     public function __construct(
         public readonly string $id,
@@ -30,6 +31,7 @@ final class TenantContext
         public readonly string $status = 'active',
         public readonly ?string $domain = null,
         public readonly array $config = [],
+        public readonly ?string $dbKey = null,
     ) {}
 
     /**
@@ -51,6 +53,12 @@ final class TenantContext
             $config = $configJson;
         }
 
+        // Derive dbKey from config if present
+        $dbKey = $config['database']['key'] ?? $row['db_key'] ?? null;
+        if ($dbKey !== null) {
+            $dbKey = (string) $dbKey;
+        }
+
         return new self(
             id: (string) ($row['id'] ?? ''),
             slug: (string) ($row['slug'] ?? ''),
@@ -59,6 +67,7 @@ final class TenantContext
             status: (string) ($row['status'] ?? 'active'),
             domain: isset($row['domain']) ? (string) $row['domain'] : null,
             config: $config,
+            dbKey: $dbKey,
         );
     }
 
@@ -77,6 +86,7 @@ final class TenantContext
             'status' => $this->status,
             'domain' => $this->domain,
             'config' => $this->config,
+            'db_key' => $this->dbKey,
         ];
     }
 

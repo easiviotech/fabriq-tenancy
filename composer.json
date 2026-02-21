@@ -1,0 +1,26 @@
+{
+    "name": "fabriq/tenancy",
+    "description": "Fabriq Tenancy — Multi-tenant context, resolution, and configuration caching.",
+    "type": "library",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.2",
+        "ext-swoole": "*",
+        "fabriq/kernel": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fabriq\\Tenancy\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    }
+}

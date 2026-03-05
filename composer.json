@@ -2,7 +2,7 @@
     "name": "fabriq/tenancy",
     "description": "Fabriq Tenancy — Multi-tenant context, resolution, and configuration caching.",
     "type": "library",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
